@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melike & Yahya</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melike & Yahya</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>❤️ Melike & Yahya ❤️</h1>
-    <p>Düğünümüze hoş geldiniz.</p>
+
+<div class="container">
+
+<h1>❤️ Melike & Yahya ❤️</h1>
+
+<p>
+Düğünümüzde çektiğiniz fotoğraf ve videoları
+bizimle paylaşabilirsiniz.
+</p>
+
+<input type="file" id="file">
+
+<textarea
+id="note"
+placeholder="İsterseniz bir not bırakabilirsiniz">
+</textarea>
+
+<button onclick="uploadFile()">
+Yükle
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
