@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzmYXz1eTje_8VU4Cacpb8aElzALNHGHwEDcCBuPlVJScVICegEG5PUe5issTAP5q5k/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXrQ_0CmlwuM9nRgoULMH2qZu4AEnDvATnNjsk1ZX1KARawYhADhqb3Uvl20AqyXmx/exec";
 const zone = document.getElementById('drop-zone');
 
 zone.addEventListener('dragover', e => {
