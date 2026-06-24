@@ -96,6 +96,7 @@ html, body {
 .divider-icon { font-size: 0.75rem; color: var(--gold); }
 
 .instruction {
+  font-family: system-ui;
   font-size: 0.88rem;
   color: var(--ink-lt);
   text-align: center;
@@ -179,7 +180,7 @@ textarea {
   padding: 14px 16px;
   border: 1.5px solid var(--paper);
   border-radius: 12px;
-  font-family: 'Lato', sans-serif;
+  font-family: system-ui;
   font-size: 0.875rem;
   font-weight: 300;
   color: var(--ink);
@@ -296,7 +297,7 @@ textarea:focus {
   padding: 14px 16px;
   border: 1.5px solid var(--paper);
   border-radius: 12px;
-  font-family: 'Lato', sans-serif;
+  font-family: system-ui;
   font-size: 0.875rem;
   font-weight: 300;
   color: var(--ink);
