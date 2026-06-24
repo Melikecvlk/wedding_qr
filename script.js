@@ -1,5 +1,4 @@
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzmYXz1eTje_8VU4Cacpb8aElzALNHGHwEDcCBuPlVJScVICegEG5PUe5issTAP5q5k/exec";
-
 const zone = document.getElementById('drop-zone');
 
 zone.addEventListener('dragover', e => {
@@ -51,10 +50,15 @@ function fileToBase64(file) {
 
 async function uploadFile() {
   const fileInput = document.getElementById('file');
-  const files = fileInput.files;
+  const files     = fileInput.files;
+  const name      = document.getElementById('name').value.trim();
 
   if (!files || files.length === 0) {
     showResult('Lütfen önce bir dosya seçin 🌿', 'error');
+    return;
+  }
+  if (!name) {
+    showResult('Lütfen isminizi girin 🌿', 'error');
     return;
   }
 
@@ -70,6 +74,7 @@ async function uploadFile() {
 
   let uploaded = 0;
   const total  = files.length;
+  const note   = document.getElementById('note').value.trim();
 
   for (const file of files) {
     try {
@@ -78,13 +83,14 @@ async function uploadFile() {
       const payload = {
         fileName: file.name,
         mimeType: file.type,
-        file: base64,
-        note: document.getElementById('note').value.trim()
+        file:     base64,
+        name:     name,
+        note:     note
       };
 
       const response = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        body: JSON.stringify(payload)
+        body:   JSON.stringify(payload)
       });
 
       const result = await response.json();
@@ -104,6 +110,7 @@ async function uploadFile() {
   resetBtn(btn, progressWrap);
   fileInput.value = '';
   document.getElementById('preview-strip').innerHTML = '';
+  document.getElementById('name').value = '';
   document.getElementById('note').value = '';
 }
 
