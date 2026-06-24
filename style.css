@@ -287,3 +287,26 @@ textarea:focus {
   .card-body { padding: 0 22px; }
   .names { font-size: 2.1rem; }
 }
+
+.input-wrap {
+  margin-bottom: 16px;
+}
+.input-wrap input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--paper);
+  border-radius: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--ink);
+  background: rgba(245,237,216,0.25);
+  outline: none;
+  transition: border-color 0.25s, background 0.25s;
+  letter-spacing: 0.02em;
+}
+.input-wrap input::placeholder { color: var(--ink-lt); opacity: 0.6; }
+.input-wrap input:focus {
+  border-color: var(--sage-lt);
+  background: rgba(245,237,216,0.45);
+}
