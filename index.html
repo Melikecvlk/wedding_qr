@@ -11,11 +11,9 @@
 <body>
 
 <div class="card">
-
   <svg class="botanical-top" viewBox="0 0 480 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <rect width="480" height="130" fill="#F5EDD8"/>
     <ellipse cx="240" cy="65" rx="260" ry="80" fill="#EDE0C4" opacity="0.4"/>
-
     <g stroke="#7A9E7E" stroke-linecap="round" fill="none">
       <path d="M10,120 Q40,90 70,70 Q100,50 130,35" stroke-width="1.6" opacity="0.7"/>
       <ellipse cx="52" cy="92" rx="11" ry="5" fill="#A8C5AB" stroke="none" transform="rotate(-35,52,92)" opacity="0.75"/>
@@ -27,7 +25,6 @@
       <circle cx="120" cy="43" r="4.5" fill="#D4909A" opacity="0.75"/>
       <circle cx="120" cy="43" r="2.5" fill="#E8B4B8" opacity="0.85"/>
     </g>
-
     <g stroke="#7A9E7E" stroke-linecap="round" fill="none">
       <path d="M470,120 Q440,90 410,70 Q380,50 350,35" stroke-width="1.6" opacity="0.7"/>
       <ellipse cx="428" cy="92" rx="11" ry="5" fill="#A8C5AB" stroke="none" transform="rotate(35,428,92)" opacity="0.75"/>
@@ -39,7 +36,6 @@
       <circle cx="360" cy="43" r="4.5" fill="#D4909A" opacity="0.75"/>
       <circle cx="360" cy="43" r="2.5" fill="#E8B4B8" opacity="0.85"/>
     </g>
-
     <g>
       <path d="M195,128 Q200,95 215,75 Q230,58 240,52" stroke="#7A9E7E" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.65"/>
       <path d="M285,128 Q280,95 265,75 Q250,58 240,52" stroke="#7A9E7E" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.65"/>
@@ -51,7 +47,6 @@
       <ellipse cx="215" cy="80" rx="7" ry="3" fill="#A8C5AB" stroke="none" transform="rotate(-55,215,80)" opacity="0.70"/>
       <ellipse cx="265" cy="80" rx="7" ry="3" fill="#A8C5AB" stroke="none" transform="rotate(55,265,80)" opacity="0.70"/>
     </g>
-
     <line x1="60" y1="127" x2="420" y2="127" stroke="#C9A84C" stroke-width="0.8" opacity="0.40"/>
   </svg>
 
@@ -60,7 +55,7 @@
     <h1 class="names" style="margin-top:22px;">
       Melike <span class="amp">&amp;</span> Yahya
     </h1>
-    <p class="tagline">25 Temmux 2026</p>
+    <p class="tagline">14 Haziran 2025</p>
 
     <div class="divider"><span class="divider-icon">✦</span></div>
 
@@ -68,6 +63,10 @@
       Düğünümüzde çektiğiniz fotoğraf ve videoları<br>
       bizimle paylaşmak ister misiniz? 🌿
     </p>
+
+    <div class="input-wrap">
+      <input type="text" id="name" placeholder="İsminiz 🌸" autocomplete="name">
+    </div>
 
     <div class="drop-zone" id="drop-zone">
       <input type="file" id="file" accept="image/*,video/*" multiple>
@@ -79,7 +78,7 @@
     <div id="preview-strip"></div>
 
     <div class="note-wrap">
-      <textarea id="note" placeholder="Bir not bırakmak ister misiniz? 🌸" rows="3"></textarea>
+      <textarea id="note" placeholder="Bir not bırakmak ister misiniz? 💬" rows="3"></textarea>
     </div>
 
     <button class="btn-upload" id="btn-upload" onclick="uploadFile()">
@@ -93,7 +92,6 @@
     <div id="result"></div>
 
   </div>
-
 </div>
 
 <script src="script.js"></script>
