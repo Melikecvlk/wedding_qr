@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoDmmLjEFkawCxW8yNTUcFdQ5ypARnSuwHziL7ERpmlEKcFDcwOCoyvsV1r2qSnD1j/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3HG_ty68R0c6KsXpifQVd3cOxxLuOnu3Og74_TavBYWM8IzoYdYGgEcu2vEOG_QjN/exec";
 const zone = document.getElementById('drop-zone');
 
 zone.addEventListener('dragover', e => {
@@ -61,6 +61,7 @@ async function uploadFile() {
   const progressWrap = document.getElementById('progress-wrap');
   const progressBar  = document.getElementById('progress-bar');
   const note         = document.getElementById('note').value.trim();
+  const name         = document.getElementById('name').value.trim();
 
   btn.disabled = true;
   btn.classList.add('loading');
@@ -79,6 +80,7 @@ async function uploadFile() {
         fileName: file.name,
         mimeType: file.type,
         file:     base64,
+        name:     name,
         note:     note
       };
 
@@ -104,6 +106,7 @@ async function uploadFile() {
   resetBtn(btn, progressWrap);
   fileInput.value = '';
   document.getElementById('preview-strip').innerHTML = '';
+  document.getElementById('name').value = '';
   document.getElementById('note').value = '';
 }
 
