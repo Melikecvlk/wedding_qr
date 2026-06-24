@@ -1,5 +1,36 @@
 body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    padding:40px;
+font-family:Arial;
+background:#faf7f2;
+display:flex;
+justify-content:center;
+padding:30px;
+}
+
+.container{
+max-width:500px;
+width:100%;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,.1);
+}
+
+h1{
+text-align:center;
+}
+
+input,
+textarea,
+button{
+width:100%;
+margin-top:15px;
+padding:12px;
+}
+
+button{
+background:#d4af37;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
 }
