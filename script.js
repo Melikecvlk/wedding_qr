@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXrQ_0CmlwuM9nRgoULMH2qZu4AEnDvATnNjsk1ZX1KARawYhADhqb3Uvl20AqyXmx/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoDmmLjEFkawCxW8yNTUcFdQ5ypARnSuwHziL7ERpmlEKcFDcwOCoyvsV1r2qSnD1j/exec";
 const zone = document.getElementById('drop-zone');
 
 zone.addEventListener('dragover', e => {
@@ -51,20 +51,16 @@ function fileToBase64(file) {
 async function uploadFile() {
   const fileInput = document.getElementById('file');
   const files     = fileInput.files;
-  const name      = document.getElementById('name').value.trim();
 
   if (!files || files.length === 0) {
     showResult('Lütfen önce bir dosya seçin 🌿', 'error');
-    return;
-  }
-  if (!name) {
-    showResult('Lütfen isminizi girin 🌿', 'error');
     return;
   }
 
   const btn          = document.getElementById('btn-upload');
   const progressWrap = document.getElementById('progress-wrap');
   const progressBar  = document.getElementById('progress-bar');
+  const note         = document.getElementById('note').value.trim();
 
   btn.disabled = true;
   btn.classList.add('loading');
@@ -74,7 +70,6 @@ async function uploadFile() {
 
   let uploaded = 0;
   const total  = files.length;
-  const note   = document.getElementById('note').value.trim();
 
   for (const file of files) {
     try {
@@ -84,7 +79,6 @@ async function uploadFile() {
         fileName: file.name,
         mimeType: file.type,
         file:     base64,
-        name:     name,
         note:     note
       };
 
@@ -110,7 +104,6 @@ async function uploadFile() {
   resetBtn(btn, progressWrap);
   fileInput.value = '';
   document.getElementById('preview-strip').innerHTML = '';
-  document.getElementById('name').value = '';
   document.getElementById('note').value = '';
 }
 
