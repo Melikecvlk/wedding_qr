@@ -1,3 +1,5 @@
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzmYXz1eTje_8VU4Cacpb8aElzALNHGHwEDcCBuPlVJScVICegEG5PUe5issTAP5q5k/exec";
+
 const zone = document.getElementById('drop-zone');
 
 zone.addEventListener('dragover', e => {
@@ -38,6 +40,15 @@ function updatePreviews(files) {
   });
 }
 
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 async function uploadFile() {
   const fileInput = document.getElementById('file');
   const files = fileInput.files;
@@ -61,18 +72,27 @@ async function uploadFile() {
   const total  = files.length;
 
   for (const file of files) {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'wedding_upload');
-
     try {
-      const response = await fetch(
-        'https://api.cloudinary.com/v1_1/dkbiznewq/auto/upload',
-        { method: 'POST', body: formData }
-      );
-      if (!response.ok) throw new Error('Upload failed');
+      const base64 = await fileToBase64(file);
+
+      const payload = {
+        fileName: file.name,
+        mimeType: file.type,
+        file: base64,
+        note: document.getElementById('note').value.trim()
+      };
+
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (!result.success) throw new Error(result.error || 'Upload failed');
+
       uploaded++;
       progressBar.style.width = Math.round((uploaded / total) * 100) + '%';
+
     } catch (err) {
       showResult('Bir şeyler ters gitti, tekrar deneyin 🌿', 'error');
       resetBtn(btn, progressWrap);
